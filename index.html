@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARIFUX - UI/UX Designer Portfolio</title>
+    <title>ARIF UI- UI/UX Designer Portfolio </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -114,9 +114,10 @@
             display: none;
             cursor: pointer;
             font-size: 1.5rem;
+            color: var(--light);
         }
         
-        /* Hero Section - Enhanced with 3D Elements */
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -208,8 +209,50 @@
             box-shadow: 0 0 25px rgba(0, 238, 255, 0.8);
         }
         
-        /* 3D Floating Devices */
-
+        /* 3D Animations */
+        .floating-devices {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+            width: 40%;
+            height: 70%;
+            z-index: 2;
+            perspective: 1200px;
+        }
+        
+        .device {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: transform 0.5s ease-out;
+            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
+        }
+        
+        .phone {
+            width: 180px;
+            height: 360px;
+            background: linear-gradient(45deg, rgba(0, 238, 255, 0.6), rgba(255, 0, 255, 0.4));
+            top: 30%;
+            right: 40%;
+            animation: floatPhone 8s ease-in-out infinite;
+            transform-style: preserve-3d;
+            border-radius: 25px;
+            border: 1px solid var(--primary);
+        }
+        
+        .tablet {
+            width: 300px;
+            height: 220px;
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.4), rgba(0, 238, 255, 0.6));
+            top: 50%;
+            right: 20%;
+            animation: floatTablet 10s ease-in-out infinite;
+            transform-style: preserve-3d;
+            border-radius: 20px;
+            border: 1px solid var(--secondary);
+        }
         
         @keyframes floatPhone {
             0%, 100% { transform: translateY(0) rotateX(5deg) rotateY(5deg) rotateZ(-2deg); }
@@ -219,12 +262,6 @@
         @keyframes floatTablet {
             0%, 100% { transform: translateY(0) rotateX(-3deg) rotateY(-5deg) rotateZ(3deg); }
             50% { transform: translateY(-15px) rotateX(-6deg) rotateY(-8deg) rotateZ(5deg); }
-        }
-        
-        /* NEW: Laptop animation */
-        @keyframes floatLaptop {
-            0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(-5deg) rotateZ(0deg); }
-            50% { transform: translateY(-10px) rotateX(5deg) rotateY(-10deg) rotateZ(2deg); }
         }
         
         /* Abstract UI Elements */
@@ -663,13 +700,33 @@
             resize: vertical;
         }
         
-        /* Footer - FIXED POSITIONING */
+        .form-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+        
+        .form-message.success {
+            background-color: rgba(46, 204, 113, 0.2);
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+        }
+        
+        .form-message.error {
+            background-color: rgba(231, 76, 60, 0.2);
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+        }
+        
+        /* Footer */
         footer {
             background: rgba(10, 10, 10, 0.7);
             padding: 40px 0 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            margin-top: auto; /* Fixes the footer positioning */
+            margin-top: auto;
         }
         
         .footer-content {
@@ -709,7 +766,7 @@
             font-size: 0.9rem;
         }
         
-        /* Floating Particles for all sections */
+        /* Floating Particles */
         .floating-particles {
             position: absolute;
             top: 0;
@@ -720,31 +777,13 @@
             pointer-events: none;
         }
         
-        /* NEW: Interactive Design Elements */
-        .interactive-element {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-            opacity: 0.3;
-            filter: blur(20px);
-            z-index: 1;
-            animation: pulse 4s infinite alternate;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.3; }
-            100% { transform: scale(1.5); opacity: 0.1; }
-        }
-        
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 2.8rem;
             }
             
-            .hero-devices {
+            .floating-devices {
                 width: 50%;
                 right: 5%;
             }
@@ -795,8 +834,8 @@
                 font-size: 1rem;
             }
             
-            .hero-devices {
-                display: none; /* Hide devices on mobile */
+            .floating-devices {
+                display: none;
             }
             
             .btn-group {
@@ -829,6 +868,14 @@
             .project-card {
                 min-width: 100%;
             }
+            
+            .resume-content {
+                padding: 30px 20px;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -837,7 +884,7 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">ARIFUX</a>
+                <a href="" class="logo">ARIF UI LAB</a>
                 <div class="menu-toggle" id="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -847,14 +894,14 @@
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#process">Process</a></li>
-                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="https://drive.google.com/file/d/1NTx3VfDG5rtL4MPWwK2cxBWUkUf0IJLJ/view?usp=sharing" target="_blank">Resume </a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section - Enhanced with 3D Elements -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <!-- Dynamic Particles Background -->
         <div class="particles" id="particles"></div>
@@ -866,17 +913,10 @@
             <div class="shape shape-3"></div>
         </div>
         
-        <!-- NEW: Interactive elements -->
-        <div class="interactive-element" style="top: 20%; left: 70%;"></div>
-        <div class="interactive-element" style="top: 70%; left: 20%; animation-delay: 1s;"></div>
-        <div class="interactive-element" style="top: 40%; left: 85%; animation-delay: 2s;"></div>
-        
         <!-- 3D Floating Devices -->
-        <div class="hero-devices">
+        <div class="floating-devices">
             <div class="device phone"></div>
             <div class="device tablet"></div>
-            <!-- NEW: Laptop device -->
-            <div class="device laptop"></div>
         </div>
         
         <div class="container">
@@ -978,7 +1018,7 @@
                     <div class="project-info">
                         <h3>Smart Wallet UI </h3>
                         <p>Dark Premium Finance App Design in Figma</p>
-                        <a href="#" class="project-btn">View Design</a>
+                        <a href="https://drive.google.com/file/d/1rnlCOIuZ_FQklGnLbdMxtQYEgPRMGmin/view?usp=sharing" target="_blank" class="project-btn">View Design</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -988,7 +1028,7 @@
                     <div class="project-info">
                         <h3>E-commerce App</h3>
                         <p>Shopping experience with intuitive navigation</p>
-                        <a href="#" class="project-btn">View Design</a>
+                        <a href="https://drive.google.com/file/d/1DPhAbs1s6cqZRB5fgG1YYGtBsI75utNB/view?usp=sharing" target="_blank" class="project-btn">View Design</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -998,8 +1038,8 @@
                     <div class="project-info">
                         <h3>Food Delivery UI  
 </h3>
-                        <p>Fast & Easy Food Ordering Experience</p>
-                        <a href="#" class="project-btn">View Design</a>
+                        <p>Fast & Easy Food Ordering <br>Experience</p>
+                        <a href="https://drive.google.com/file/d/1D80xh2Qd26QPU8f3ddWe-eOpoYjrhuKl/view?usp=sharing" target="_blank" class="project-btn">View Design</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -1009,7 +1049,7 @@
                     <div class="project-info">
                         <h3>Medlink UI Design</h3>
                         <p>Smart, Simple & Clean Doctor Appointment App UI</p>
-                        <a href="#" class="project-btn">View Design</a>
+                        <a href="https://drive.google.com/file/d/1DN3oGWU-3PeutPo6t-LIaNsQGmWpKe4a/view?usp=sharing" target="_blank" class="project-btn">View Design</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -1019,7 +1059,7 @@
                     <div class="project-info">
                         <h3>Trip UI Design</h3>
                         <p>Smart & Simple Travel Experience <br> UI for All</p>
-                        <a href="#" class="project-btn">View Design</a>
+                        <a href="https://drive.google.com/file/d/1U8gCbIsX4WG33TcCEKrBuXzapJDSW23e/view?usp=sharing" target="_blank" class="project-btn">View Design</a>
                     </div>
                 </div>
                  <div class="project-card">
@@ -1029,7 +1069,7 @@
                     <div class="project-info">
                         <h3>E-commerce UI Kit </h3>
                         <p>27+ Modern Screens for Seamless Shopping Experience</p>
-                        <a href="" class="project-btn">View Design</a>
+                        <a href="https://drive.google.com/file/d/1MIRIPItkrzZTA7c-hF0GSSMuXxu8IFx6/view?usp=sharing" target="_blank" class="project-btn">View Design</a>
             </div>
         </div>
     </section>
@@ -1082,12 +1122,12 @@
                 <h3>Senior UI/UX Designer</h3>
                 <p class="job-title">Creative Solutions Agency • 2024 - Present</p>
                 <p>Designing modern and responsive interfaces for mobile and web platforms. I focus on creating intuitive user experiences that align with business goals. Collaborated with cross-functional teams to design real-world applications and ensure visual consistency across projects. Contributed to early-stage wireframes, design systems, and interactive prototypes to support development and user testing.</p>
-                <a href="#" class="btn btn-primary">Download Resume</a>
+                <a href="https://drive.google.com/file/d/1NTx3VfDG5rtL4MPWwK2cxBWUkUf0IJLJ/view?usp=sharing" class="btn btn-primary" target="_blank">Download Resume</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section with Backend Integration -->
     <section class="contact" id="contact">
         <div class="floating-particles" id="contact-particles"></div>
         <div class="container">
@@ -1119,43 +1159,49 @@
                         </div>
                     </div>
                 </div>
-         <div class="contact-form">
-    <form action="https://formspree.io/f/mvgryrqr" method="POST" id="contactForm">
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" class="form-control" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-    </form>
-</div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer - FIXED POSITIONING -->
-    <footer>
+    <!-- Footer -->
+    <footer >
+
         <div class="container">
             <div class="footer-content">
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-behance"></i></a>
-                    <a href="#"><i class="fab fa-dribbble"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.behance.net/zyxarif568" target="_blank"><i class="fab fa-behance"></i></a>
+                    <a href="https://dribbble.com/zyxarif47" target="_blank"><i class="fab fa-dribbble"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61577772174924" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                 </div>
                 <p class="copyright">© 2025 ARIFUX. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JavaScript with Backend Integration -->
     <script>
         // Mobile Menu Toggle
         const mobileMenu = document.getElementById('mobile-menu');
@@ -1163,17 +1209,20 @@
         
         mobileMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
         });
         
         // Close mobile menu when clicking a nav link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
             });
         });
         
-        // Form Submission
+        // Form Submission with Backend Integration
         const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
         
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -1181,11 +1230,12 @@
             // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
             // Basic validation
-            if (!name || !email || !message) {
-                alert('Please fill in all fields');
+            if (!name || !email || !subject || !message) {
+                showMessage('Please fill in all fields', 'error');
                 return;
             }
             
@@ -1196,23 +1246,52 @@
             submitBtn.disabled = true;
             
             try {
-                // Simulate submission
-                await new Promise(resolve => setTimeout(resolve, 1500));
+                // Prepare form data
+                const formData = new FormData();
+                formData.append('name', name);
+                formData.append('email', email);
+                formData.append('subject', subject);
+                formData.append('message', message);
                 
-                // Show success message
-                alert('Message sent successfully! I will get back to you soon.');
+                // Send data to backend (using Formspree.io in this example)
+                const response = await fetch('https://formspree.io/f/mvgryrqr', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
                 
-                // Reset form
-                contactForm.reset();
+                if (response.ok) {
+                    // Show success message
+                    showMessage('Message sent successfully! I will get back to you soon.', 'success');
+                    
+                    // Reset form
+                    contactForm.reset();
+                } else {
+                    showMessage('There was an error sending your message. Please try again.', 'error');
+                }
             } catch (error) {
                 console.error('Error:', error);
-                alert('There was an error sending your message. Please try again.');
+                showMessage('There was an error sending your message. Please try again.', 'error');
             } finally {
                 // Restore button state
                 submitBtn.innerHTML = originalBtnText;
                 submitBtn.disabled = false;
             }
         });
+        
+        // Show form messages
+        function showMessage(text, type) {
+            formMessage.textContent = text;
+            formMessage.className = 'form-message ' + type;
+            formMessage.style.display = 'block';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+        }
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1279,7 +1358,7 @@
             }
         }
         
-        // Initialize animations
+        // Initialize animations when page loads
         window.addEventListener('load', () => {
             // Add fade-in effect to all sections
             document.querySelectorAll('section').forEach(section => {
